@@ -1,0 +1,8 @@
+abstractandinterfaceclass/Animal.java
+ abstractandinterfaceclass.Animal
+abstractandinterfaceclass/Lion.java
+ abstractandinterfaceclass.Lion
+abstractandinterfaceclass/Sparrow.java
+ abstractandinterfaceclass.Sparrow
+abstractandinterfaceclass/AbstractClassDemo.java
+ abstractandinterfaceclass.AbstractClassDemo

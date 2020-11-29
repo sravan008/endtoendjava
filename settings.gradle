@@ -1,0 +1,4 @@
+rootProject.name = 'endtoendjava'
+include 'DesignPatterns'
+include 'Testing'
+

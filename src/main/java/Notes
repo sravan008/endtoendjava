@@ -1,0 +1,43 @@
+Objects have Identity, State and Behaviour
+Objects carry out behaviour in response to messages they receive
+
+Association
+- Dependency Association
+- Is-A -- Inheritance
+- Composition Association
+    - Has a relationship
+    - Vehicle own Engine
+    - class Vehicle {
+        Engine engine
+        }
+        vehicle ->Engine [UML]
+- Aggregation
+    -
+- Cohesion - Keep related things together
+
+    SRP - Single Responsibility Principal  - A class should have only single reason to change
+    DRY - Don't Repeat Yourself - not containing other than it's primary functionality
+    OCP - Open Closed Principal -  Software Modules should be open for extension and closed for modification
+    DIP - Dependency inversion  - Depend on abstract or interfaces rather than directly depends on
+                                                it's concrete classes because abstract or interfaces wont change very often
+                                - High Level modules shouldn't not depend on low level modules
+             DIP-Violation : When higher level modules depend on lower level ones susceptible to change
+    LSP  - Liskov substitution Principal -  Subtypes must be substitutable for their basetypes
+    ISP - Interface Segregation Principal
+    Dependency Injection - Injecting the dependencies to the Objects VIA, Constructor, Field, Setter or Lookup method injection
+
+
+
+
+    Solid Arrow - Inheritance
+
+
+Have A - Relation is not a good pattern - Mean two classes inheriting from the same class
+
+
+
+
+
+
+
+
