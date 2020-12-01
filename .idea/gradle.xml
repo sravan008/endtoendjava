@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DesignPatterns" />
             <option value="$PROJECT_DIR$/Testing" />
+            <option value="$PROJECT_DIR$/dsandalgo" />
           </set>
         </option>
       </GradleProjectSettings>
