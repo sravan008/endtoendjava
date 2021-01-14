@@ -1,0 +1,13 @@
+|--------------------------------------|-----------------------------------|
+|              ArrayList               |            LinkedList             |
+|--------------------------------------|-----------------------------------|
+|     Allows fast read access          |   Retrieving element takes O(n)   |
+|--------------------------------------|-----------------------------------|
+|   Adding an element require shifting | o(1) [but traversing takes time]  |
+|       all the later elements         |                                   |
+|--------------------------------------|-----------------------------------|
+|   To add more elements than capacity |
+|    new array need to be allocated    |
+|--------------------------------------|
+
+

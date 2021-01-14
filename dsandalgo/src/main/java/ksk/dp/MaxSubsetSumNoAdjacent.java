@@ -30,7 +30,8 @@ public class MaxSubsetSumNoAdjacent {
 
     public static void main(String[] args) {
 
-        int a[] = {7, 10, 12, 7, 9, 14}; //Answer is 33
+       // int a[] = {7, 10, 12, 7, 9, 14}; //Answer is 33
+        int a[] = {4,1,2,6,10,1,12}; //Answer is 32
         //int a[] = {4, 1, 1, 4, 2, 1}; //Answer is 9
         //System.out.println(MaxSubsetSumNoAdjacent.maxSum(a));
         System.out.println(MaxSubsetSumNoAdjacent.maxSubsetSum(a));
