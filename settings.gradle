@@ -2,4 +2,6 @@ rootProject.name = 'endtoendjava'
 include 'DesignPatterns'
 include 'Testing'
 include 'dsandalgo'
+include 'practice'
+include 'java8'
 

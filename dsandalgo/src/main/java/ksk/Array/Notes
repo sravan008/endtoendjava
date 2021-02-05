@@ -10,4 +10,31 @@
 |    new array need to be allocated    |
 |--------------------------------------|
 
+-- LinkedList is good for adding and removing
+-- ArrayList good for Getting the data
 
+ArrayList
+get                 O(1)
+add                 O(1)
+contains            O(n)
+next                O(1)
+remove              O(n)
+iterator.remove     O(n)
+
+LinkedList
+
+get                 O(n)
+add                 O(1)
+contains            O(n)
+next                O(1)
+remove              O(1)
+iterator.remove     O(1)
+
+CopyOnWrite-ArrayList
+
+get                 O(1)
+add                 O(n)
+contains            O(n)
+next                O(1)
+remove              O(n)
+iterator.remove     O(n)

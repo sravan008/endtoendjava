@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/DesignPatterns" />
             <option value="$PROJECT_DIR$/Testing" />
             <option value="$PROJECT_DIR$/dsandalgo" />
+            <option value="$PROJECT_DIR$/java8" />
+            <option value="$PROJECT_DIR$/practice" />
           </set>
         </option>
       </GradleProjectSettings>

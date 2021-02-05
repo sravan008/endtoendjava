@@ -1,5 +1,9 @@
 package ksk.ds.stacknq;
 
+
+//
+
+
 public class Stack {
 
 	private int maxSize;
@@ -18,7 +22,7 @@ public class Stack {
 		if (isEmpty()) {
 			System.out.println("Stack is empty, push something to test pop functionality");
 		} else {
-			int oldval = top;
+			long oldval = stackArray[top];
 			System.out.println(oldval);
 			top--;
 		}
@@ -47,4 +51,33 @@ public class Stack {
 	public boolean isFull() {
 		return (maxSize - 1 == top);
 	}
+
+
+	public static void main(String[] args){
+
+		Stack ownStack = new Stack(5);
+		ownStack.push(5);
+		ownStack.push(4);
+		ownStack.push(3);
+		ownStack.push(2);
+		ownStack.push(1);
+		ownStack.pop();
+		ownStack.pop();
+		ownStack.pop();
+		ownStack.pop();
+		ownStack.pop();
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
 }
