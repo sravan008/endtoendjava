@@ -45,8 +45,9 @@ public class SumOfTwoNumbers {
         SumOfTwoNumbers sumOfTwoNumbers = new SumOfTwoNumbers();
         int[] array = {3, 5, -4, 8, 11, 1, -1, 6};
         int[] arrays = {-4, -1, 1, 3, 5, 6, 8, 11};
-        //List ll = Arrays.asList(sumOfTwoNumbers.twoNumberSum(array, 11));
-        List ll = Arrays.asList(sumOfTwoNumbers.twoNumberSum(13, arrays));
+        // List ll = Arrays.asList(sumOfTwoNumbers.twoNumberSum(array, 11));
+        List ll = Arrays.asList(sumOfTwoNumbers.twoNumberSum(arrays, 13));
+        // List ll = Arrays.asList(sumOfTwoNumbers.twoNumberSum(13, arrays));
         System.out.println(ll);
     }
 

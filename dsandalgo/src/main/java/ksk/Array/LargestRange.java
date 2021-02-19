@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+// Given an array, check what will the largest range. here the largest range will be - 20 to 30
+
 public class LargestRange {
 
     static List<Integer> largestRangeInArray(int[] array) {

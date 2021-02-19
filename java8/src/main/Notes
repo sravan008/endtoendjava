@@ -1,0 +1,20 @@
+
+
+Functional programming --> Paradigm (paradiam pronunciation) shift --> Meaning, think in a functional programming
+
+In a stream, we intermediate operation and finally terminate the operation
+Example:
+list.stream.distinct() //Strea<T> Intermediate operation
+.sorted() //intermediate operation
+.forEach(SOUT)// void termination operation
+----
+.collect(Collector.toList()); //R--> Return
+
+Functional Interfaces  - It has exactly one abstract method -->
+- Predicate  -->
+- Consumer   -->
+- Function   -->
+
+
+
+//HighOrderFunction  -> Returns a another function has the return value
