@@ -1,5 +1,6 @@
 package ksk.recurrsion;
 
+// FIB - 1,1,2,3,5,6,13,21,34,55,89,144......
 public class NthFibonacci {
 
 

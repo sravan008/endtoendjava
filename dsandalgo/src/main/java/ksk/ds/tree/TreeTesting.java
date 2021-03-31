@@ -13,6 +13,7 @@ public class TreeTesting {
 		btree.insert(15);
 		btree.insert(1);
 
+
 		/*
 		 * System.out.println(btree.lookUp(4)); System.out.println(btree.lookUp(6));
 		 * System.out.println(btree.lookUp(20)); System.out.println(btree.lookUp(170));
