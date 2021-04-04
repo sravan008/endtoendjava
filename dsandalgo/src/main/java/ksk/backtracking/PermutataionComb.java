@@ -17,10 +17,10 @@ public class PermutataionComb {
         else {
             for (int i = l; i <= r; i++) {
                 str = swap(str, l, i);
-                System.out.println("1st -"+str +" : "+ "i = "+i+" : "+ "l= "+l+" :"+ "r = "+r );
+                //System.out.println("1st -"+str +" : "+ "i = "+i+" : "+ "l= "+l+" :"+ "r = "+r );
                 permute(str, l + 1, r);
                 str = swap(str, l, i);
-                System.out.println("2nd-"+str +" : "+ "i = "+i+" : "+ "l= "+l+" :"+ "r = "+r );
+                //System.out.println("2nd-"+str +" : "+ "i = "+i+" : "+ "l= "+l+" :"+ "r = "+r );
             }
         }
     }

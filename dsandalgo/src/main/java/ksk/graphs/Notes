@@ -1,7 +1,53 @@
 
 
+First go through the Vertex DS and then go to BFS and DFS [Understand the theory first and implement]
+
+
+
 BreadthFirstSearch --> Queue
 DepthFirstSearch --> Stack
 Topological Sort --> DFS
 CycleDetection  --> You will have use the isBeingVisited and isVisited boolean variables to findout the cycle in the graph
+
+
+https://stackoverflow.com/questions/3332947/when-is-it-practical-to-use-depth-first-search-dfs-vs-breadth-first-search-bf
+
+In general, BFS is better for problems related to finding the shortest paths or somewhat related problems.
+Because here you go from one node to all node that are adjacent to it and hence you effectively move from path length one to path length two and so on.
+While DFS on the other end helps more in connectivity problems and also in finding cycles in graph
+(though I think you might be able to find cycles with a bit of modification of BFS too).
+Determining connectivity with DFS is trivial, if you call the explore procedure twice from the DFS procedure, then the graph is disconnected (this is for an undirected graph). You can see the strongly connected component algorithm for a directed graph here, which is a modification of DFS. Another application of the DFS is topological sorting.
+
+These are some applications of both the algorithms:
+
+DFS:
+Connectivity
+Strongly Connected Components
+Topological Sorting
+
+
+BFS:
+Shortest Path(Dijkstra is some what of a modification of BFS).
+Testing whether the graph is Bipartitie.
+
+https://medium.com/@vatsalunadkat/advantages-and-disadvantages-of-ai-algorithms-d8fb137f4df2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
