@@ -15,7 +15,7 @@ public class Queue {
     }
 
     boolean isFull() {
-        return (rear == size-1);
+        return (rear == size - 1);
     }
 
     boolean isEmpty() {
@@ -26,22 +26,29 @@ public class Queue {
         if (isFull()) {
             System.out.println("Queue is FULL");
             return;
+        } else if (front == -1 && rear == -1) {
+            front = 0;
+            rear = 0;
+            queueArray[rear] = data;
+        } else {
+            rear++;
+            queueArray[rear] = data;
         }
-        rear++;
-        queueArray[rear] = data;
     }
 
 
     void dQueue() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
-        }
-        rear = rear - 1;
+        } else if (front == rear) {
+            front = rear = -1;
+        } else front++;
+
     }
 
     void printQueue() {
         System.out.println("QUEUE");
-        for (int i = 0; i < queueArray.length; i++) {
+        for (int i = front; i < rear+1; i++) {
             System.out.println(queueArray[i]);
         }
     }
@@ -49,15 +56,15 @@ public class Queue {
 
     public static void main(String[] args) {
 
-        Queue queue = new Queue(4);
+        Queue queue = new Queue(7);
         queue.enQueue(1);
         queue.enQueue(2);
         queue.enQueue(3);
         queue.enQueue(4);
         queue.printQueue();
-        queue.enQueue(5);
+        queue.enQueue(6);
+        queue.printQueue();
         queue.dQueue();
-        queue.enQueue(5);
         queue.printQueue();
         queue.dQueue();
         queue.dQueue();

@@ -12,7 +12,8 @@ public class InsertionSort {
 			int j = i - 1;
 			while (j >= 0 && inArray[j] > key) {
 				inArray[j + 1] = inArray[j];
-				j = j - 1;
+				//j = j - 1;
+				j--;
 			}
 			inArray[j + 1] = key;
 		}

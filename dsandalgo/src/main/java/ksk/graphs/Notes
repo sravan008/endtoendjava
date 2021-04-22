@@ -12,11 +12,17 @@ CycleDetection  --> You will have use the isBeingVisited and isVisited boolean v
 
 https://stackoverflow.com/questions/3332947/when-is-it-practical-to-use-depth-first-search-dfs-vs-breadth-first-search-bf
 
+IMP:
+ BFS --> This algo traverses first all the elements in level 0 and all the elements in level 1
+            and followed by other levels [Kind of a Zig Zag pattern] -- BFS also called, level ordered  traversal technique
+ DFS ---> https://www.youtube.com/watch?v=rEa4014IxR8&list=PL2q4fbVm1Ik6DCzm9XZJbNwyHtHGclcEh&index=3
+
 In general, BFS is better for problems related to finding the shortest paths or somewhat related problems.
 Because here you go from one node to all node that are adjacent to it and hence you effectively move from path length one to path length two and so on.
 While DFS on the other end helps more in connectivity problems and also in finding cycles in graph
 (though I think you might be able to find cycles with a bit of modification of BFS too).
-Determining connectivity with DFS is trivial, if you call the explore procedure twice from the DFS procedure, then the graph is disconnected (this is for an undirected graph). You can see the strongly connected component algorithm for a directed graph here, which is a modification of DFS. Another application of the DFS is topological sorting.
+Determining connectivity with DFS is trivial, if you call the explore procedure twice from the DFS procedure, then the graph is disconnected (this is for an undirected graph).
+You can see the strongly connected component algorithm for a directed graph here, which is a modification of DFS. Another application of the DFS is topological sorting.
 
 These are some applications of both the algorithms:
 
@@ -35,6 +41,11 @@ https://medium.com/@vatsalunadkat/advantages-and-disadvantages-of-ai-algorithms-
 
 
 
+
+
+Problems:
+
+Counting number of connected components --> you will have to write a for loop from 1 to n and check if the index is already visited or else visit the node using DFS
 
 
 

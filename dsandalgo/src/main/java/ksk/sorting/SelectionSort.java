@@ -11,6 +11,7 @@ public class SelectionSort {
 	public int[] sort(int[] inArray) {
 
 		for (int i = 0; i < inArray.length - 1; i++) {
+			System.out.println(Arrays.toString(inArray));
 			int min = i; // min variable use to save the min value
 			for (int j = i + 1; j < inArray.length; j++) {
 				if (inArray[j] < inArray[min])

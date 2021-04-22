@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+
+/*
+*
+* Time Complexity --> O(V+E)
+*
+* */
+
 public class TopoligicalSort {
 
     private Stack<Vertex> stackVertex;
