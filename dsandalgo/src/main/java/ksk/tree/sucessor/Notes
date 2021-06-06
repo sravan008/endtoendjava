@@ -1,0 +1,19 @@
+https://www.youtube.com/watch?v=JdmAYw5h3G8
+
+Successor -> Refer the picture, 16 successor is 30
+
+Logic --> go to the right, loop it's till left  leaf node.. refer the below logic
+
+
+Successor(Node node)
+{
+    if (node == null) return null;
+    Node currentNode = node.right;
+    while(currentNode!=null){
+    currentNode = currentNode.left;
+}
+
+return currentNode; // Successor of the given Node;
+
+
+}

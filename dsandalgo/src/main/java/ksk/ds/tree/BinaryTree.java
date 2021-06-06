@@ -106,14 +106,15 @@ public class BinaryTree implements Tree {
 
     @Override
     public void traverse() {
-        System.out.println("Pre Order");
-        preOrder(root);
+        //System.out.println("Pre Order");
+        //preOrder(root);
         System.out.println("In Order");
         inOrder(root);
-        System.out.println("Post Order");
-        postOrder(root);
+        //System.out.println("Post Order");
+        //postOrder(root);
     }
 
+    // left -->Print--> Right  (Ascending Order)
     public void inOrder(TreeNode node) {
         if (node != null) {
             this.inOrder(node.getLeft());

@@ -1,0 +1,19 @@
+
+Heap --> Heap always maintain the MaxHeap or Min Heap
+MinHeap     -- Root will maintain the min value
+Max Heap    -- Root will maintain the max value
+
+We can get the time complexity o(1)
+
+Questions
+--> When ever the ask to give the max value or min value or kth value
+-->
+
+********************
+left  --> 2*i+1
+right --> 2*i+2
+********************
+
+Whenever you want to get the index value --> i-1/2    -->i is nothing but a index
+
+
