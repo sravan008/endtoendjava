@@ -1,0 +1,169 @@
+-- install
+brew install rabbitmq
+brew info rabbitmq
+
+Create or edit the RabbitMQ configuration file (/opt/homebrew/etc/rabbitmq/rabbitmq.conf), and add the following:
+stomp.listeners.tcp.1 = ::1:61614
+
+-- Start and Stop
+brew services start rabbitmq
+brew services stop rabbitmq
+AMQP - Advanced Message Queuing Protocol
+
+Messaging:
+ - Basically a form of communication
+ - Loosely coupled integration
+
+STOMP | MQTT | AMQP
+- Simple Text Oriented Messaging Protocol
+- Message queue Telemetry Transport
+    - Highly Standardized
+    - Simply pub-sub
+    - Designed for Resource constrained
+    - Enterprise messaging and very lightweight and used in IOT
+        The Light weight comes because of Compact Binary packers: no message properties and headers compressed
+    - AWS IoT and Greengass edge-computing solutions are designed around MQTT
+AMQP:
+- Advanced Message Queueing Protocol
+- Reliable and interoperable ( Desktop to mobile or mobile to IoT devices anything it can be interop)
+- Topic based pub/sub and flexible routing
+- Enables messaging as a cloud service
+- Transactional messaging functionality
+- Real time feed of constantly updating
+- Encrypted assured
+
+
+RabbitMQ:
+- AMQP
+- Flexible messaging platform designed to interoperate with other messaging systems
+- Erlang used boasts on it's high throughout and low latency
+- Supports clustering for fault tolerance and scalability
+- Protocol defines exchanges, queues and bindings
+- Allow multiple connection channels inside a single TCP connection in order to remove the over head of opening a large number of TCP connections to the message broker
+    Opening and managing multiple TCP connections at the same time can be expensive in terms of resources (CPU, memory, and network bandwidth).
+    For example, each new TCP connection requires establishing a handshake, allocating buffers, and maintaining the connection’s state.
+-  What is a Channel?
+  In RabbitMQ, a channel is a virtual connection inside a real TCP connection. It is a lightweight way to communicate with RabbitMQ, and many channels can be created over a single TCP connection.
+  	•	TCP Connection: Think of this as a physical cable connecting your application to RabbitMQ.
+  	•	Channel: Think of channels as multiple “virtual wires” running inside that single cable, allowing multiple, separate communications over the same physical connection
+-
+
+
+--- Basics:
+
+"Messages are routed to Queues from Exchanges using Bindings"
+
+Broker: The RabbitMQ server that routes messages between producers and consumers
+Queue : A buffer that stores messages. Consumers fetch messages from queues
+
+Exchange: Routes messages to queues based on routing rules. Types include direct, topic, fanout, and headers
+    - Actual AMQP elements where message are sent at first
+    - Takes a message and routes into one or more queues
+    - Routing algorithm decides where to send messages from exchange
+    - Routing algorithms depends on ethe exchange type and rules called "bindings"
+    - Bindings are simply used to bind exchanges to queues for message delivery
+Queue:
+- A core element in any MQ protocol esp for RabbitMQ
+- Messages are routed to queues from exchanges
+- Queues are final destinations in RabbitMQ before being received subscribers
+- Routing Algorithms depends on the exchange type and rules called "Bindings"
+- Bindings are simply used to bind exchanges to queues from message delivery
+Properties:
+- Name, Durable (Persistence), Exclusive(Delete queue if not used anymore), Auto Delete( Delete the queue when consumer unsubscribes )
+
+Topic:
+- Topics are simply the "Subject" part of the messages
+- Defined as routing_key for message grouping
+Producer: The entity (application or process) that sends messages to RabbitMQ
+Consumer: The entity (application or process) that receives messages from RabbitMQ
+Message: The data or information that is sent between producer and consumer via RabbitMQ
+Binding: Defines the relationship between an exchange and a queue, determining how messages are routed.
+- Rules that exchanges use to router message to queues
+- To instruct an exchange E to router message to a queue K, K has to be bound to E
+- May have optional routing key attribute used by some exchange types
+- So the routing key acts like a filter
+- Binding Analogy
+    - Queue is like your destination in Istanbul city of Turkey
+    - Exchange is like aaturk airport in Istabul city
+    - Binging are routes from Ataturk to your destination, There are ZERO to many ways to reach
+Routing Key: A key used to route messages to the appropriate queue via an exchange.
+Direct Exchange : Routes messages to queues based on an exact match between routing key and queue binding
+Topic Exchange  : Routes messages based on pattern matching of routing keys, allowing for wildcard matches (* and #)
+Fanout Exchange : Broadcasts messages to all queues bound to the exchange, regardless of routing key
+Headers Exchange: Routes messages based on matching message headers instead of routing keys. (A headers exchange routes messages based on message headers like x-match: all, where all specified headers (e.g., format:pdf and type:report) must match.)
+Virtual Host (vhost): A namespace in RabbitMQ, allowing logical grouping of exchanges, queues, and users
+Channel: A virtual connection within a TCP connection. It’s a lightweight mechanism to process multiple messages concurrently
+Ack (Acknowledgment): A message sent from a consumer to the broker indicating successful receipt and processing of a message
+Nack (Negative Acknowledgment): A message sent from a consumer to the broker indicating the message could not be processed
+Durable Queue : A queue that persists even when RabbitMQ is restarted
+Persistent Message: A message that is written to disk and survives server restarts.
+Prefetch: Limits the number of messages a consumer can receive before acknowledging them.
+Dead Letter Exchange (DLX) : An exchange that receives messages that were not deliverable to their intended queues (e.g., rejected or expired).
+Cluster: A set of RabbitMQ nodes that work together to ensure high availability and redundancy.
+Shovel: A feature that allows moving messages from one broker (or cluster) to another.
+Federation: A feature that links multiple RabbitMQ brokers to share messages between them
+Plugin: A modular component that extends RabbitMQ’s functionality, such as management UI, STOMP, etc
+
+
+Prefetching limits how many messages RabbitMQ will send to a consumer before the consumer sends back an acknowledgment.
+	•	It prevents RabbitMQ from overwhelming consumers with too many messages at once.
+	•	This helps optimize message processing by ensuring that each consumer works at a manageable pace and evenly distributes the workload among multiple consumers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Queue vs. Exchange: What They Do
+	•	Queue: A queue in RabbitMQ is a simple structure that holds and stores messages until they are consumed by a consumer. It’s a passive storage for messages.
+	•	Consumers pull messages from queues and process them.
+	•	Example: A queue named task_queue holds tasks like “send email” or “process image” for worker processes to handle.
+	•	Exchange: An exchange is responsible for routing messages to the appropriate queues based on routing rules.
+	•	The exchange doesn’t store messages. It simply receives them from the producer and decides which queue (or queues) should get the message, based on the rules (routing keys, headers, etc.).
+	•	Example: An exchange named logs_exchange routes different types of logs (error, info, debug) to different queues based on their severity level.
+2. Why Both Are Needed
+The main reason for separating exchanges and queues is flexibility and scalability. Here’s why:
+a. Separation of Concerns
+	•	Exchanges focus on routing logic: They determine how messages should flow through the system.
+	•	Queues focus on message storage: They store the messages until consumers are ready to process them.
+This separation allows RabbitMQ to efficiently manage routing and storage independently, making the system more scalable and flexible.
+b. Flexible Routing
+	•	Exchanges give you the power to route messages dynamically based on different criteria (routing keys, patterns, etc.). You can have one message sent to multiple queues or route it based on more complex conditions.
+	•	Without exchanges, every producer would need to know exactly which queue to send messages to, which can lead to tight coupling between producers and consumers. This limits flexibility.
+Example: In a logging system:
+	•	Producer sends a log message to an exchange called logs_exchange with a routing key error.
+	•	The exchange could route this message to multiple queues:
+	•	One queue stores all error logs for a monitoring system.
+	•	Another queue stores all logs (including error logs) for archiving.
+Without an exchange, the producer would need to send the message to each queue manually, which is less efficient.
+c. Different Routing Strategies
+RabbitMQ provides different types of exchanges to support various messaging patterns:
+	•	Direct Exchange: Routes messages to queues based on an exact match of the routing key.
+	•	Fanout Exchange: Broadcasts messages to all queues bound to the exchange, regardless of routing key.
+	•	Topic Exchange: Routes messages based on pattern matching of routing keys, useful for more complex scenarios.
+	•	Headers Exchange: Routes based on message headers rather than routing keys.
+These strategies allow for highly flexible message distribution across multiple queues, and RabbitMQ can support various use cases (broadcasting, filtering, etc.).
+3. Example: Why an Exchange Helps
+Let’s say you have a system that processes different kinds of tasks:
+	1.	Producer sends task messages (e.g., send_email, generate_report) to an exchange called task_exchange.
+	2.	You have multiple queues:
+	•	email_queue handles only send_email tasks.
+	•	report_queue handles only generate_report tasks.
+	•	general_queue stores all tasks for logging purposes.
+Now, you can bind the email_queue to task_exchange and set a routing rule that it should only receive messages with the routing key send_email. Similarly, you bind report_queue to receive messages with the routing key generate_report. The general_queue receives all messages without filtering.
+If you didn’t have exchanges, the producer would have to directly send messages to each individual queue and manage that routing logic itself, making the code much more complex.
+
